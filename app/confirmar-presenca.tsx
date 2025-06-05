@@ -39,16 +39,14 @@ export default function ConfirmarPresencaScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Cabeçalho */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()}>
+        <TouchableOpacity onPress={() => router.back()} activeOpacity={0.7}>
           <Ionicons name="arrow-back" size={24} color="#333" />
         </TouchableOpacity>
         <Text style={styles.title}>Confirmar Presença</Text>
-        <View style={{ width: 24 }} /> {/* Alinhamento */}
+        <View style={{ width: 24 }} />
       </View>
 
-      {/* Lista de dias */}
       <ScrollView contentContainerStyle={styles.content}>
         {dias.map(dia => (
           <TouchableOpacity
@@ -70,8 +68,7 @@ export default function ConfirmarPresencaScreen() {
         ))}
       </ScrollView>
 
-      {/* Botão confirmar */}
-      <TouchableOpacity style={styles.botao} onPress={confirmar}>
+      <TouchableOpacity style={styles.botao} onPress={confirmar} activeOpacity={0.8}>
         <Text style={styles.botaoTexto}>Confirmar Presença</Text>
       </TouchableOpacity>
     </View>
@@ -80,6 +77,7 @@ export default function ConfirmarPresencaScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#f9fafe' },
+
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -87,49 +85,63 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingTop: 50,
     paddingBottom: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: '#fff',
     borderBottomWidth: 1,
-    borderBottomColor: '#e0e0e0',
+    borderBottomColor: '#e5e7eb',
   },
-  title: { fontSize: 22, fontWeight: '600', color: '#333' },
+
+  title: { fontSize: 22, fontWeight: '600', color: '#111827' },
+
   content: {
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 15,
   },
+
   card: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#ffffff',
-    padding: 16,
-    borderRadius: 10,
+    padding: 18,
+    borderRadius: 12,
     marginBottom: 15,
     borderWidth: 1,
-    borderColor: '#ddd',
+    borderColor: '#e5e7eb',
     shadowColor: '#000',
     shadowOpacity: 0.05,
     shadowOffset: { width: 0, height: 2 },
-    shadowRadius: 5,
+    shadowRadius: 6,
     elevation: 2,
   },
+
   cardSelecionado: {
     borderColor: '#007bff',
     backgroundColor: '#e6f0ff',
   },
+
   diaTexto: {
     fontSize: 16,
-    color: '#555',
+    color: '#374151',
   },
+
   diaTextoSelecionado: {
     color: '#007bff',
-    fontWeight: 'bold',
+    fontWeight: '600',
   },
+
   botao: {
     backgroundColor: '#007bff',
-    padding: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 24,
     margin: 20,
-    borderRadius: 10,
+    borderRadius: 12,
     alignItems: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
+    elevation: 3,
   },
+
   botaoTexto: {
     color: '#fff',
     fontSize: 17,
